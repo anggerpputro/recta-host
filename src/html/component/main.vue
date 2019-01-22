@@ -19,7 +19,8 @@ hr {
 	<form action id="settings">
 		<div class="row">
 			<div class="twelve columns">
-				<h3 id="app-name">Recta Host (TIRTA)</h3>
+				<h1 id="app-name">Recta Host</h1>
+				<label>(PDAM TIRTA - Dinustek)</label>
 				<label>Printer Adapter</label>
 				<select class="u-full-width" v-model="printer.adapter">
 					<option value="usb">USB</option>
@@ -28,7 +29,7 @@ hr {
 				</select>
 			</div>
 		</div>
-		<component :is="printer.adapter" :data="printer.option" @change="optionChange"></component>
+		<!-- <component :is="printer.adapter" :data="printer.option" @change="optionChange"></component> -->
 		<hr>
 		<div class="row">
 			<div class="twelve columns">

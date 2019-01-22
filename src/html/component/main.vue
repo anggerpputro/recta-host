@@ -92,6 +92,7 @@ export default {
 			},
 			startup: true,
 			startup_on_stoped: true,
+			restart_attempt: 0,
 			service: null,
 			isStart: false,
 			logs: []
@@ -120,8 +121,9 @@ export default {
 				ipcRenderer.send("started");
 			} else {
 				ipcRenderer.send("stoped");
-				if (this.startup_on_stoped) {
+				if (this.startup_on_stoped && this.restart_attempt <= 100) {
 					this.start(true);
+					this.restart_attempt++;
 				}
 			}
 		}
@@ -151,6 +153,7 @@ export default {
 				this.service = new Service();
 				this.service.on("open", () => {
 					this.isStart = true;
+					this.restart_attempt = 0;
 
 					if (restarted) {
 						this.log("Service Restarted");

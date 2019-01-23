@@ -5,9 +5,7 @@ const { platform, arch } = process;
 module.exports = {
 	make_targets: {
 		win32: ["squirrel", "zip"],
-		// darwin: [
-		//   'zip',
-		// ],
+		darwin: ["zip"],
 		linux: [
 			"deb"
 			// 'rpm',
@@ -75,7 +73,7 @@ module.exports = {
 		}
 	},
 	github_repository: {
-		owner: "adenvt",
+		owner: "anggerpputro",
 		name: "recta-host"
 	},
 	windowsStoreConfig: {
